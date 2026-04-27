@@ -21,6 +21,16 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-[#020617] text-white overflow-hidden">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src="/kling_20260427_作品_cinematic__5413_0.mp4" type="video/mp4" />
+      </video>
+
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(58,85,255,0.35),_transparent_40%),linear-gradient(180deg,_rgba(0,0,0,0.65),_rgba(0,0,0,0.9))]" />
 
       <div className="relative z-10 flex min-h-screen flex-col md:flex-row">
