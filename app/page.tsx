@@ -33,6 +33,18 @@ export default function Home() {
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(58,85,255,0.35),_transparent_40%),linear-gradient(180deg,_rgba(0,0,0,0.65),_rgba(0,0,0,0.9))]" />
 
+      <div className="fixed right-6 top-1/4 z-20 hidden lg:block">
+        <div className="rounded-[2rem] border border-white/10 bg-white/10 p-4 shadow-[0_20px_60px_-30px_rgba(56,189,248,0.75)] backdrop-blur-xl">
+          <Image
+            src="/atlas.svg"
+            alt="Atlas Mascot"
+            width={180}
+            height={210}
+            className="h-auto w-[180px]"
+          />
+        </div>
+      </div>
+
       <div className="relative z-10 flex min-h-screen flex-col md:flex-row">
         <div className="flex-1 flex flex-col justify-center px-6 py-16 lg:px-20">
           <p className="text-sm uppercase tracking-[0.4em] text-sky-300 mb-5">Maskotumuzla tanışın</p>
@@ -57,10 +69,10 @@ export default function Home() {
               <Image
                 src="/atlas.svg"
                 alt="Atlas Mascot"
-                width={360}
-                height={420}
+                width={260}
+                height={300}
                 priority
-                className="relative h-auto w-full min-w-[220px] animate-bounce-slow"
+                className="relative h-auto w-full min-w-[180px] animate-bounce-slow"
               />
             </div>
           </Link>

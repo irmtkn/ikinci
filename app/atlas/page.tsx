@@ -1,15 +1,25 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function AtlasPage() {
   return (
     <main className="min-h-screen bg-[#060b1d] text-white px-6 py-12 md:px-12 lg:px-24">
       <div className="max-w-5xl mx-auto">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sky-300 hover:text-white mb-8"
-        >
-          ← Ana sayfaya geri dön
-        </Link>
+        <div className="mb-8 flex items-center gap-4">
+          <Image
+            src="/atlas.svg"
+            alt="Atlas Logo"
+            width={72}
+            height={84}
+            className="h-auto w-[72px]"
+          />
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sky-300 hover:text-white"
+          >
+            ← Ana sayfaya geri dön
+          </Link>
+        </div>
 
         <section className="rounded-[2rem] border border-white/10 bg-white/5 p-10 shadow-[0_40px_120px_-40px_rgba(56,189,248,0.35)] backdrop-blur-xl">
           <p className="text-sm uppercase tracking-[0.35em] text-sky-300 mb-4">Atlas'ın Hikayesi</p>
