@@ -1,64 +1,59 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
-  // Basit özel gün kontrolü - gerçekte daha sofistike olabilir
   const today = new Date();
   const month = today.getMonth() + 1;
   const day = today.getDate();
-  const isMothersDay = (month === 5 && day >= 1 && day <= 31); // Basitleştirilmiş
+  const isMothersDay = month === 5; // Anneler Günü dönemine özel içerik
 
-  const specialContent = isMothersDay ? {
-    title: "Anneler Günü İçin Özel Sağlık Poliçesi",
-    subtitle: "Sevdiklerinizi koruyun, hediye check-up'lı sağlık sigortası ile.",
-    cta: "Şimdi Teklif Al"
-  } : {
-    title: "Geleceğinizi Koruyun",
-    subtitle: "Güvenilir sigorta çözümleriyle yanınızdayız.",
-    cta: "İletişime Geçin"
-  };
+  const specialContent = isMothersDay
+    ? {
+        title: "Anneler Günü İçin Özel Sağlık Poliçesi",
+        subtitle: "Sevdiklerinize hediye check-up'lı, sadeliğiyle fark yaratan bir sağlık sigortası.",
+        cta: "Teklif Al"
+      }
+    : {
+        title: "Geleceğinizi Koruyun",
+        subtitle: "rem. ile sigorta artık daha anlaşılır, daha hızlı ve daha güvenilir.",
+        cta: "Atlas'ı Tanıyın"
+      };
 
   return (
-    <div className="relative min-h-screen bg-black text-white overflow-hidden">
-      {/* Video Background */}
-      <video
-        autoPlay
-        loop
-        muted
-        className="absolute inset-0 w-full h-full object-cover opacity-50"
-      >
-        <source src="/hero-video.mp4" type="video/mp4" />
-        {/* Placeholder video */}
-      </video>
+    <div className="relative min-h-screen bg-[#020617] text-white overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(58,85,255,0.35),_transparent_40%),linear-gradient(180deg,_rgba(0,0,0,0.65),_rgba(0,0,0,0.9))]" />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-
-      {/* Main Content */}
-      <div className="relative z-10 flex min-h-screen">
-        {/* Left Content */}
-        <div className="flex-1 flex flex-col justify-center px-8 md:px-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
-            {specialContent.title}
+      <div className="relative z-10 flex min-h-screen flex-col md:flex-row">
+        <div className="flex-1 flex flex-col justify-center px-6 py-16 lg:px-20">
+          <p className="text-sm uppercase tracking-[0.4em] text-sky-300 mb-5">Maskotumuzla tanışın</p>
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[0.95] mb-6">
+            Merhaba, ben <span className="text-sky-400">Atlas.</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 opacity-90">
-            {specialContent.subtitle}
+          <p className="max-w-xl text-lg md:text-xl text-slate-300 mb-10">
+            Biraz sıradışı, biraz bilge, tamamen senin yanında. Sigorta karmaşık olmak zorunda değil; Atlas, en doğru çözüme yol gösterir.
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full text-lg transition-colors">
-            {specialContent.cta}
-          </button>
+          <Link
+            href="/atlas"
+            className="inline-flex items-center justify-center rounded-full bg-sky-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-sky-500/20 transition hover:bg-sky-400"
+          >
+            Atlas'ı Daha Yakından Tanı
+          </Link>
         </div>
 
-        {/* Right Side - Scrolling Atlas */}
-        <div className="w-1/3 relative">
-          <div className="sticky top-0 h-screen flex items-center justify-center">
-            <Image
-              src="/atlas.svg"
-              alt="Atlas Mascot"
-              width={300}
-              height={300}
-              className="animate-bounce"
-            />
-          </div>
+        <div className="relative w-full md:w-1/2 flex items-center justify-center px-6 pb-14 md:pb-0">
+          <Link href="/atlas" className="group relative inline-flex items-center justify-center">
+            <div className="absolute inset-0 rounded-[2rem] bg-sky-500/10 blur-3xl transition duration-500 group-hover:scale-105" />
+            <div className="relative rounded-[2rem] border border-white/10 bg-white/5 p-10 shadow-[0_40px_120px_-40px_rgba(56,189,248,0.75)] backdrop-blur-xl">
+              <Image
+                src="/atlas.svg"
+                alt="Atlas Mascot"
+                width={360}
+                height={420}
+                priority
+                className="relative h-auto w-full min-w-[220px] animate-bounce-slow"
+              />
+            </div>
+          </Link>
         </div>
       </div>
     </div>
